@@ -1,0 +1,30 @@
+using System;
+
+namespace study
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите числа в строку через пробел: ");
+            string [] numbers = Console.ReadLine().Split(" ");
+            int len = numbers.Length - 1;
+
+            Console.WriteLine("Сумма элементов массива равна " + ArraySum(len, numbers));
+        }
+
+        #region Вычисление суммы элементов, рекурсия
+        static int ArraySum(int l, string[] num)
+        {
+            if (l == 0)
+            {
+                return Convert.ToInt32(num[l]);
+            }
+            else
+            {
+                return Convert.ToInt32(num[l]) + ArraySum(l - 1, num);
+            }
+        }
+        #endregion
+    }
+}

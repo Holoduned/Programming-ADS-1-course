@@ -1,0 +1,37 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            int h = Convert.ToInt32(Console.ReadLine()); //высота
+
+            // вершина
+            int ot = h - 1; // отступы
+            int k = 1; // количество звезд в строке
+
+            for (int i = h; i > 0; i--)
+            {
+                string s = new string(' ', h) + new string(' ', ot) + new string('*', k) + new string(' ', ot) + new string(' ', h);
+                Console.WriteLine(s);
+
+                ot -= 1;
+                k += 2;
+            }
+            //низ
+            int ot_2 = h - 1;
+            int k_2 = 1;
+
+            for (int i = h; i > 0; i--)
+            {
+                string s = new string(' ', ot_2) + new string('*', k_2) + new string(' ', ot_2) + " " + new string(' ', ot_2) + new string('*', k_2) + new string(' ', ot_2);
+                Console.WriteLine(s);
+
+                ot_2 -= 1;
+                k_2 += 2;
+            }
+        }
+    }
+}

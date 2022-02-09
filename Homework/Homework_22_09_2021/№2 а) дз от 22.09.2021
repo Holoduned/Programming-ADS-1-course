@@ -1,0 +1,42 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            Console.Write("Введите строку: ");
+            string s = Console.ReadLine();
+            int rank = Convert.ToInt32(Math.Ceiling(Math.Sqrt(s.Length)));
+
+            string[,] numbers = new string[rank, rank];
+
+            int counter = 0;
+            for (int row = 0; row < rank; row++)
+            {
+                for (int column = 0; column < rank; column++)
+                {
+                    if (counter >= s.Length)
+                    {
+                        numbers[row, column] = "0";
+                    }
+                    else  
+                    {
+                        numbers[row, column] = Convert.ToString(s[counter]);
+                        counter += 1;
+                    }  
+                }
+            }
+
+            for (int row = 0; row < rank; row++)
+            {
+                for (int column = 0; column < rank; column++)
+                {
+                    Console.Write(" " + numbers[row, column]);
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            double u = Math.Pow(x, 2);
+            double v = Math.Pow(x, 3);
+            double w = Math.Pow(x, 5);
+            double y = (w + 5.7 * v) / (u - 7.5) + 4.2 * w - 8.9 * u;
+
+            Console.WriteLine(y);
+        }
+    }
+}

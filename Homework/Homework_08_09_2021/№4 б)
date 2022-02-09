@@ -1,0 +1,30 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            int a = Convert.ToInt32(Console.ReadLine());
+            int b = Convert.ToInt32(Console.ReadLine());
+            int c = Convert.ToInt32(Console.ReadLine());
+
+            double res_1 = (a + b + c) / 3;
+            int res_2 = a * b * c;
+
+            double min;
+            if (res_1 <= res_2)
+            {
+                min = res_1;
+                Console.WriteLine(res_1 / (1 + res_1 * res_1));
+            }
+            else
+            {
+                min = res_2;
+                Console.WriteLine(res_2 / (1 + res_2 * res_2));
+            }
+
+        }
+    }
+}

@@ -1,0 +1,38 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            int[,] numbers = new int[2, 2];
+            int min = 10000000;
+
+            for (int row = 0; row < 2; row++)
+            {
+                for (int column = 0; column < 2; column++)
+                {
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    numbers[row, column] = num;
+
+                    if (num < min)
+                    {
+                        min = num;
+                    }
+                }
+            }
+
+            for (int row = 0; row < 2; row++)
+            {
+                for (int column = 0; column < 2; column++)
+                {
+                    Console.Write(" " + numbers[row, column]);
+                }
+                Console.WriteLine();
+            }
+
+            Console.Write($"Минимальное число: {min}");
+        }
+    }
+}

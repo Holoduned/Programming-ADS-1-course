@@ -1,0 +1,41 @@
+
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            static int Factorial(int n)
+            {
+                int res = 1;
+                for (int i = n; i > 1; i--)
+                {
+                    res *= i;
+                }
+                return res;
+            }
+
+            Console.Write("Введите x - значение степени e: ");
+            double x = Convert.ToDouble(Console.ReadLine());
+            double res_1 = Math.Exp(x);
+
+            Console.Write("Введите точность: ");
+            double accuracy = Convert.ToDouble(Console.ReadLine());
+
+            double res_2 = 0;
+            int count = 0;
+            while (Math.Abs(Math.Abs(res_1) - Math.Abs(res_2)) > accuracy)
+            {
+
+                res_2 += Math.Pow(x, count) / Factorial(count);
+                count += 1;
+            }
+
+            Console.WriteLine(res_1);
+            Console.WriteLine(res_2);
+
+        }
+    }
+}

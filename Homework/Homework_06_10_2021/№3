@@ -1,0 +1,43 @@
+using System;
+
+namespace study
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите числа в строку через пробел: ");
+            string[] nums = Console.ReadLine().Split(" ");
+            Console.Write("Введите искомое число: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int index_1 = 0;
+            int index_2 = nums.Length;
+
+            Console.WriteLine(Dihotomia(nums, n, index_1, index_2));
+        }
+
+        static bool Dihotomia(string[] numbers, int element, int left, int right)
+        {
+            if (left > right)
+            {
+                return false;
+            }
+
+            int middle = (left + right) / 2;
+
+            if (element == Convert.ToInt32(numbers[middle]))
+            {
+                return true;
+            }
+
+            if (element < Convert.ToInt32(numbers[middle]))
+            {
+                return Dihotomia(numbers, element, left, middle - 1);
+            }
+            else
+            {
+                return Dihotomia(numbers, element, middle + 1, right);
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+using System;
+
+namespace stud4
+{
+    class Program
+    {
+        static void Main()
+        {
+            string number = ConsoleInput();
+            double result = ReverseNumber(number);
+
+            Console.WriteLine(result);
+        }
+
+        #region Ввод данных, метод
+        static string ConsoleInput()
+        {
+            string s = "0";
+            Console.WriteLine("Введите число, не содержащее 0: ");
+
+            while (s.Contains("0") != false)
+            {
+                s = Console.ReadLine();
+            }
+
+            return s;
+        }
+        #endregion
+
+        #region Разворот числа, метод
+        static double ReverseNumber(string num)
+        {
+            int len = num.Length;
+            int n = Convert.ToInt32(num);
+            double res = 0;
+
+            for (int i = len - 1; i >= 0; i--)
+            {
+                res += n % 10 * Math.Pow(10, i);
+                n = n / 10;
+            }
+
+            return res;
+        }
+        #endregion
+    }
+}

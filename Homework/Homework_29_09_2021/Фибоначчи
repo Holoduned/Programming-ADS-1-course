@@ -1,0 +1,26 @@
+using System;
+
+namespace study
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine(Fibonacci(Convert.ToInt32(Console.ReadLine())));
+        }
+
+        #region Числа Фибоначчи, метод
+        static ulong Fibonacci(int n)
+        {
+            ulong numOne = 0;
+            ulong numTwo = 1;
+
+            for (int i = n - 1; i > 0; i--)
+            {
+                (numOne, numTwo) = (numTwo, numTwo + numOne);
+            }
+
+            return numOne;
+        }
+        #endregion
+    }

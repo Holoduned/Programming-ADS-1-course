@@ -1,0 +1,40 @@
+
+using System;
+
+namespace ClassWork
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.Write("Введите x - аргумент: ");
+            double x = Convert.ToInt32(Console.ReadLine()) * Math.PI / 180;
+            double res_1 = Math.Sin(x);
+
+            Console.Write("Введите точность: ");
+            double accuracy = Convert.ToDouble(Console.ReadLine());
+
+            double res_2 = 0;
+            int count = 0;
+            while (Math.Abs(Math.Abs(res_1) - Math.Abs(res_2)) > accuracy)
+            {
+                res_2 += Math.Pow(-1, count) * Math.Pow(x, 2 * count + 1) / Factorial(2 * count + 1);
+                count += 1;
+            }
+
+            Console.WriteLine(res_1);
+            Console.WriteLine(res_2);
+        }
+
+        static int Factorial(int n)
+        {
+            int res = 1;
+            for (int i = n; i > 1; i--)
+            {
+                res *= i;
+            }
+            return res;
+        }
+    }
+}

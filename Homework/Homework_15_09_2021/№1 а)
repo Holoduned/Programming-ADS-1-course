@@ -1,0 +1,23 @@
+using System;
+
+namespace Study
+{
+    class program1
+    {
+        static void Main()
+        {
+            int h = Convert.ToInt32(Console.ReadLine()); //высота дерева
+            int ot = h - 1; // отступы
+            int k = 1; // количество звезд на строке
+
+            for (int i = h; i > 0; i--)
+            {
+                string s = new string(' ', ot) + new string('*', k) + new string(' ', ot);
+                Console.WriteLine(s);
+
+                ot -= 1;
+                k += 2;
+            }
+        }
+    }
+}

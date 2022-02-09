@@ -1,0 +1,31 @@
+using System;
+
+namespace homework
+{
+    class program
+    {
+        static void Main()
+        {
+            int k = Convert.ToInt32(Console.ReadLine());
+            int m = Convert.ToInt32(Console.ReadLine());
+            int l = Convert.ToInt32(Console.ReadLine());
+
+            int n;
+            if (k == m)
+            {
+                n = l;
+            }
+            else if (k == l)
+            {
+                n = m;
+            }
+            else
+            {
+                n = k;
+            }
+
+            Console.WriteLine(n);
+
+        }
+    }
+}
