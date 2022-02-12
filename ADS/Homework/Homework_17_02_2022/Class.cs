@@ -72,26 +72,20 @@ namespace Study.Домашние__2_семестр._10._02
 
         public static int[][] ArraysCreate(string[] array)
         {
-            int[][] arrays = new int[array.Length][];
+            int[][] arrays = { };
 
             for (int i = 0; i < array.Length; i++)
             {
-                try
+                var arr = Array.ConvertAll(array[i].Split(" "), int.Parse);
+                for (int j = 0; j < arr.Length - 1; j++)
                 {
-                    arrays[i] = Array.ConvertAll(array[i].Split(" "), int.Parse);
-                    int[] arr = Array.ConvertAll(array[i].Split(" "), int.Parse);
-                    Array.Sort(arr);
-                    if (!arrays[i].SequenceEqual(arr))
+                    if(arr[j] > arr[j + 1])
                     {
                         Console.WriteLine("Один из введенных массивов не является отсортированным");
                         throw new Exception("Введенный массив не является отсортированным");
                     }
                 }
-                catch 
-                {
-                    Array.Sort(arrays[i]);
-                    Console.WriteLine("Массив был отсортирован");
-                }
+                arrays = arrays.Append(arr).ToArray();
             }
 
             return arrays;
