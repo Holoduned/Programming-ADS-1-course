@@ -52,19 +52,51 @@ namespace Study.Домашние__2_семестр._10._02
 
             for (int i = 0; i < array[0].Length; i++)
             {
-                if (array[1].Contains(array[0][i]))
+                if (!array[1].Contains(array[0][i]))
                 {
-                    continue;
-                }
-                else
-                {
-                    difflist.Add(array[0][i]);
+                    difflist.Add(array[0][i]); ;
                 }
             }
 
             return difflist.ToArray();
         }
 
+        public static int[] IntersectionArray(int[][] array)
+        {
+            List<int> Interlist = new List<int>();
+
+            for (int i = 0; i < array[0].Length; i++)
+            {
+                if (array[1].Contains(array[0][i]))
+                {
+                    Interlist.Add(array[0][i]); ;
+                }
+
+            }
+
+            return Interlist.ToArray();
+        }
+
+        public static string MaxNumberArray(int[][] array)
+        {
+            string[] maxNumber = Array.ConvertAll(array[0], x => x.ToString());
+            Array.Sort(maxNumber); Array.Reverse(maxNumber);
+
+            for (int j = 0; j < maxNumber.Length; j++)
+            {
+                for (int i = 0; i < maxNumber.Length - 1; i++)
+                {
+                    if (Convert.ToInt32(maxNumber[i] + maxNumber[i + 1]) < Convert.ToInt32(maxNumber[i + 1] + maxNumber[i]))
+                    {
+                        string temp = maxNumber[i];
+                        maxNumber[i] = maxNumber[i + 1];
+                        maxNumber[i + 1] = temp;
+                    }
+                }
+            }
+
+            return String.Join("", Array.ConvertAll(maxNumber, int.Parse));
+        }
         public static void ArrayPrint(int[] array)
         {
             Console.WriteLine(String.Join(" ", array));

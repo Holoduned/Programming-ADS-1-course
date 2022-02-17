@@ -14,8 +14,15 @@ namespace Study.Домашние__2_семестр._10._02
             string[] lines = FileManager.ReadFile(path);
             int[][] arrays = WorkWithArray.ArraysCreate(lines);
 
+            Console.Write("Разность массивов 1 и 2: ");
             WorkWithArray.ArrayPrint(WorkWithArray.DifferenceArray(arrays));
+            Console.Write("Пересечение массивов 1 и 2: ");
+            WorkWithArray.ArrayPrint(WorkWithArray.IntersectionArray(arrays));
+            Console.Write("Слияние всех массивов: ");
             WorkWithArray.ArrayPrint(WorkWithArray.ArrayMerge(arrays));
+            Console.WriteLine("Максимальное число из элементов массива 1: ");
+            Console.WriteLine(WorkWithArray.MaxNumberArray(arrays));
+
         }
     }
 }
