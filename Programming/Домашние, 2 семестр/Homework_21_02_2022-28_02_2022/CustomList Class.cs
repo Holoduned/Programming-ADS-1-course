@@ -170,39 +170,42 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
             }
         }
 
-        //public void AddBeforeAndAfter(int m, int k)
-        //{
-        //    Node runner = head;
-        //    Node previous = null;
-        //    Node newElement = new Node(m);
+        public void AddBeforeAndAfter(int m, int k)
+        {
+            Node runner = head;
+            Node previous = null; Node next = head.nextNode;
+            Node elementM1 = new Node(m); Node elementM2 = new Node(m);
 
-        //    while (true)
-        //    {
-        //        if (runner.Data == k && runner.nextNode == null)
-        //        {
-        //            previous.nextNode = newElement;
-        //            return;
-        //        }
-        //        else if (runner.Data == k && previous == null)
-        //        {
-        //            newElement.nextNode = head.nextNode;
-        //            head.nextNode = head;
-        //            head =  newElement;
-        //            return;
-        //        }
-        //        else if (runner.Data == k)
-        //        {
-        //            newElement.nextNode = runner;
-        //            previous.nextNode = newElement;
-        //            //runner.nextNode = newElement;
-        //            return;
-        //        }
+            while (true)
+            {
+                if (runner.Data == k && runner.nextNode == null)
+                {
+                    runner.nextNode = elementM2;
+                    elementM1.nextNode = runner;
+                    previous.nextNode = elementM1;
+                    return;
+                }
+                else if (runner.Data == k && previous == null)
+                {
+                    elementM2.nextNode = runner.nextNode;
+                    runner.nextNode = elementM2;
+                    elementM1.nextNode = runner;
+                    head = elementM1;
+                    return;
+                }
+                else if (runner.Data == k)
+                {
+                    elementM2.nextNode = runner.nextNode;
+                    runner.nextNode = elementM2;
+                    elementM1.nextNode = runner;
+                    previous.nextNode = elementM1;
+                    return;
+                }
 
-        //        count--;
-        //        previous = runner;
-        //        runner = runner.nextNode;
-        //    }
-        //}
+                previous = runner;
+                runner = runner.nextNode;
+            }
+        }
 
         public void PrintList()
         {
