@@ -170,6 +170,40 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
             }
         }
 
+        //public void AddBeforeAndAfter(int m, int k)
+        //{
+        //    Node runner = head;
+        //    Node previous = null;
+        //    Node newElement = new Node(m);
+
+        //    while (true)
+        //    {
+        //        if (runner.Data == k && runner.nextNode == null)
+        //        {
+        //            previous.nextNode = newElement;
+        //            return;
+        //        }
+        //        else if (runner.Data == k && previous == null)
+        //        {
+        //            newElement.nextNode = head.nextNode;
+        //            head.nextNode = head;
+        //            head =  newElement;
+        //            return;
+        //        }
+        //        else if (runner.Data == k)
+        //        {
+        //            newElement.nextNode = runner;
+        //            previous.nextNode = newElement;
+        //            //runner.nextNode = newElement;
+        //            return;
+        //        }
+
+        //        count--;
+        //        previous = runner;
+        //        runner = runner.nextNode;
+        //    }
+        //}
+
         public void PrintList()
         {
             Node runner = head;

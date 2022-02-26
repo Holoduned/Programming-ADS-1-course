@@ -27,16 +27,19 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
             Console.WriteLine($"Сумма элементов из списка: {CustomList.SumElement(list)}");
             Console.WriteLine($"Наличие в списке отрицательных элементов: {CustomList.NegativeElement(list)}");
 
-            Console.Write("Удаление определенного элемента/элементов: ");
-            CustomList.RemoveAllElements(list, 3, true);
+            list.AddBeforeAndAfter(4, 6);
             list.PrintList();
 
-            Console.Write("Удаление первого, последнего и предпоследнего элемента: ");
-            list.RemoveHead();
-            list.RemoveLast();
-            list.RemovePreLast();
+            //Console.Write("Удаление определенного элемента/элементов: ");
+            //CustomList.RemoveAllElements(list, 3, true);
+            //list.PrintList();
 
-            list.PrintList();
+            //Console.Write("Удаление первого, последнего и предпоследнего элемента: ");
+            //list.RemoveHead();
+            //list.RemoveLast();
+            //list.RemovePreLast();
+
+            //list.PrintList();
 
         }
     }
