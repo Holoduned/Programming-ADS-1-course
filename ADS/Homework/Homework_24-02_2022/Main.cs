@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ADS.Homework.Homework_24_02_2022
 {
-    class Programm
-    {
-        static void Main(string[] args)
-        {
-            int[] mas = { 1, 4, 1, 1 };
-            Couple[] dictionary = Dictionary.Add(mas);
-            WorkWithDictionary.FindElement(dictionary, mas.Length);
+    //class Programm
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int[] mas = { 1, 2, 3, 4, 5};
+    //        Couple[] dictionary = Dictionary.Add(mas);
+    //        WorkWithDictionary.FindElement(dictionary, mas.Length);
 
-            PermutationsTasks.PossibleSum(101, 2, 13);
-            PermutationsTasks.Subsets(mas);
+    //        PermutationsTasks.PossibleSum(101, 2, 13);
+    //        PermutationsTasks.Subsets(mas);
 
             
-        }
-    }
+    //    }
+    //}
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Домашние__2_семестр.Homework_21_02_2022
+﻿namespace Programming.Домашние__2_семестр.Homework_21_02_2022
 {
     public class Node
     {
@@ -173,7 +167,7 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
         public void AddBeforeAndAfter(int m, int k)
         {
             Node runner = head;
-            Node previous = null; Node next = head.nextNode;
+            Node previous = null;
             Node elementM1 = new Node(m); Node elementM2 = new Node(m);
 
             while (true)
@@ -203,6 +197,34 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
                 }
 
                 previous = runner;
+                runner = runner.nextNode;
+            }
+        }
+
+        public void Swap()
+        {
+            Node runner = head;
+            int count = 1;
+
+            if (head != null && head.nextNode != null)
+            {
+                Node newNode = head.nextNode;
+                head.nextNode = head.nextNode.nextNode;
+                newNode.nextNode = head;
+                head = newNode;
+                runner = head;
+            }
+
+            while (runner.nextNode != null && runner.nextNode.nextNode != null)
+            {
+                if (count % 2 == 0)
+                {
+                    Node newNode = runner.nextNode;
+                    runner.nextNode = newNode.nextNode;
+                    newNode.nextNode = runner.nextNode.nextNode;
+                    runner.nextNode.nextNode = newNode;
+                }
+                count++;
                 runner = runner.nextNode;
             }
         }

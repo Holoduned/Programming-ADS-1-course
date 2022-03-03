@@ -39,6 +39,8 @@ namespace Programming.Домашние__2_семестр.Homework_21_02_2022
             list.RemoveLast();
             list.RemovePreLast();
 
+            list.Swap();
+
             list.PrintList();
 
         }
