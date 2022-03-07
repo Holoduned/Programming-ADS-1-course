@@ -13,28 +13,11 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
         bool Contains(T elem);
         void Add(T elem);
         void AddRange(T[] elems);
-
-        /// <summary>
-        /// Удаление элемента со значением
-        /// </summary>
         void Remove(T elem);
-
-        /// <summary>
-        /// Удаляет все элементы со значением
-        /// </summary>
         void RemoveAll(T elem);
-
-        /// <summary>
-        /// Удаление элемента на позиции с номером 
-        /// </summary>
         void RemoveAt(int index);
         void Clear();
         void Reverse();
-
-        /// <summary>
-        /// Вставка элемента на конкретную позицию
-        /// </summary>
-        void Insert(int index, T elem);
         int IndexOf(T elem);
         void Print();
     }
@@ -94,20 +77,28 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
 
         public void Remove(T element)
         {
-
+            var index = IndexOf(element);
+            if (index < 0) { return; }
+            array = array[0..IndexOf(element)].Concat(IndexOf(element) == array.Length ? Array.Empty<T>() : array[(IndexOf(element) + 1)..array.Length]).ToArray();
         }
 
         public void RemoveAll(T element)
         {
+            T[] mas = new T[array.Length];
+            int count = 0;
 
+            foreach (T item in array)
+            {
+                if (!item.Equals(element))
+                {
+                    mas[count] = item;
+                    count++;
+                }
+            }
+            array = mas[0..count];
         }
 
         public void RemoveAt(int index)
-        {
-
-        }
-
-        public void Insert(int index, T element)
         {
 
         }
