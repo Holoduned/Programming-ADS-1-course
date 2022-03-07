@@ -10,14 +10,14 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
     {
         static void Main(string[] args)
         {
-            CustomList<string> list = new CustomList<string>();
-            list.Add("6");
-            list.Add("3");
-            list.Add("9");
-            list.Add("1");
-            list.Add("3");
-            list.Add("2");
-            list.PrintList();
+            //CustomList<string> list = new CustomList<string>();
+            //list.Add("6");
+            //list.Add("3");
+            //list.Add("9");
+            //list.Add("1");
+            //list.Add("3");
+            //list.Add("2");
+            //list.PrintList();
 
             //list.RemoveHead();
             //list.RemoveLast();
@@ -26,14 +26,20 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
             //list.AddPosition("5", 3);
             //list.AddBeforeAndAfter("7", "3");
             //list.Swap();
+            //list = list.Reverse();
+            //list.PrintList();
+            //Console.WriteLine(list.MaxElement());
+            //Console.WriteLine(list.NegativeElement());
+            //Console.WriteLine(list.SumElement());
 
-            list = list.Reverse();
-            list.PrintList();
-
-            Console.WriteLine(list.MaxElement());
-            Console.WriteLine(list.NegativeElement());
-            Console.WriteLine(list.SumElement());
-
+            CustomArrayCollection<int> array = new CustomArrayCollection<int>();
+            array.Add(1);
+            array.AddRange(3, 5, 6, 7, 1);
+            Console.WriteLine(array.Size());
+            Console.WriteLine(array.isEmpty());
+            Console.WriteLine(array.Contains(1));
+            array.Reverse();
+            array.Print();
 
         }
     }
