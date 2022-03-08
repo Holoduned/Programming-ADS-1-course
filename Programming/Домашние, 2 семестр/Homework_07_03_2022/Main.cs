@@ -12,11 +12,7 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
         {
             CustomList<string> list = new CustomList<string>();
             list.Add("6");
-            list.Add("3");
-            list.Add("9");
-            list.Add("1");
-            list.Add("3");
-            list.Add("2");
+            list.AddRange("3", "4", "6", "3");
             list.PrintList();
 
             //list.RemoveHead();
@@ -26,8 +22,8 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
             //list.AddPosition("5", 3);
             //list.AddBeforeAndAfter("7", "3");
             //list.Swap();
-            //list = list.Reverse();
-            //list.PrintList();
+            ////list = list.Reverse();
+            ////list.PrintList();
             //Console.WriteLine(list.MaxElement());
             //Console.WriteLine(list.NegativeElement());
             //Console.WriteLine(list.SumElement());

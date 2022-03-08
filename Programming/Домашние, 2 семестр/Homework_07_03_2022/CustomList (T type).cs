@@ -250,9 +250,25 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
             {
                 list.AddToFront(runner.Data);
                 runner = runner.nextNode;
+                if (runner.nextNode == null) { list.AddToFront(runner.Data); }
 
             }
             return list;
+        }
+
+        public void AddRange(params T[] mas)
+        {
+            Node<T> runner = head;
+            while (runner.nextNode != null)
+            {
+                runner = runner.nextNode;
+            }
+
+            foreach (T item in mas)
+            {
+                runner.nextNode = new Node<T>(item);
+                runner = runner.nextNode;
+            }
         }
 
         public int MaxElement()
