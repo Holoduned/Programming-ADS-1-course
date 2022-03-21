@@ -9,8 +9,11 @@
 
   <ItemGroup>
     <Compile Remove="ADS\**" />
+    <Compile Remove="TestProject\**" />
     <EmbeddedResource Remove="ADS\**" />
+    <EmbeddedResource Remove="TestProject\**" />
     <None Remove="ADS\**" />
+    <None Remove="TestProject\**" />
   </ItemGroup>
 
   <ItemGroup>

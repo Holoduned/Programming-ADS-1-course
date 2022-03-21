@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Programming", "Programming.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADS", "ADS\ADS.csproj", "{6D8AA018-8BD9-46C0-BDE4-3A5E5501F11E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{B378FFF3-73B5-494A-A65F-72AFCA2BF447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests, ControlWork_21_03_2022", "TestProject\Tests, ControlWork_21_03_2022.csproj", "{B378FFF3-73B5-494A-A65F-72AFCA2BF447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

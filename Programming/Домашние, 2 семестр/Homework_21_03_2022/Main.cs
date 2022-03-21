@@ -16,10 +16,10 @@ namespace Контрольная_21_03_2022
             queue.Enqueue(3);
             queue.Enqueue(4);
             Console.WriteLine(String.Join(" ", queue.BackEnumerator()));
-            queue.Remove(1);
+            queue.Remove(3);
+            queue.Dequeue();
             queue.PrintQueue();
 
-            Console.WriteLine(queue.Dequeue());
             Console.WriteLine(queue.Size());
             Console.WriteLine(queue.IsEmpty());
         }

@@ -140,9 +140,9 @@ namespace Контрольная_21_03_2022
             list.Add(item);
         }
 
-        public T Dequeue()
+        public void Dequeue()
         {
-            return list.RemoveHead();
+            list.RemoveHead();
         }
 
         public int Size()
@@ -166,6 +166,17 @@ namespace Контрольная_21_03_2022
                 Console.Write(node.Data + " ");
             }
             Console.WriteLine();
+        }
+
+        public string QueueToString()
+        {
+            string s = "";
+            foreach(Node<T> node in this)
+            {
+                s += node.ToString();
+            }
+
+            return s;
         }
     }
 }
