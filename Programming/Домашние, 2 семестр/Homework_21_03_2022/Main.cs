@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Контрольная_21_03_2022
+namespace Programming.Programming.Домашние__2_семестр.Homework_21_03_2022
 {
     class Programm
     {
         static void Main(string[] args)
         {
-            CustomQueue<int> queue = new CustomQueue<int>();
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            Console.WriteLine(String.Join(" ", queue.BackEnumerator()));
-            queue.Remove(3);
-            queue.Dequeue();
-            queue.PrintQueue();
+            DoublyLinkedList<int> doublyNodes = new DoublyLinkedList<int>();
+            doublyNodes.Add(0);
+            doublyNodes.Add(1);
+            doublyNodes.Add(2);
 
-            Console.WriteLine(queue.Size());
-            Console.WriteLine(queue.IsEmpty());
+            doublyNodes.DoublyListPrint();
+
         }
     }
 }
