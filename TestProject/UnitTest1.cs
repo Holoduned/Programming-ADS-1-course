@@ -1,16 +1,11 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Programming;
-using System.Collections;
-using System;
-using System.Linq;
-using Контрольная_21_03_2022;
+using NUnit.Framework;
+using РљРѕРЅС‚СЂРѕР»СЊРЅР°СЏ_21_03_2022;
 
 namespace Test
 {
-    [TestClass]
     public class CollectionTest
     {
-        [TestMethod]
+        [Test]
         public void TestAdding()
         {
             CustomQueue<int> queue = new CustomQueue<int>();
@@ -19,7 +14,7 @@ namespace Test
             Assert.AreEqual(queue.QueueToString(), "1");
         }
 
-        [TestMethod]
+        [Test]
         public void TestDeleting()
         {
             CustomQueue<int> queue = new CustomQueue<int>();
@@ -30,7 +25,7 @@ namespace Test
             Assert.AreEqual(queue.QueueToString(), "2");
         }
 
-        [TestMethod]
+        [Test]
         public void TestIsEmpty()
         {
             CustomQueue<int> queue = new CustomQueue<int>();
@@ -40,7 +35,7 @@ namespace Test
             Assert.IsFalse(queue.IsEmpty());
         }
 
-        [TestMethod]
+        [Test]
         public void TestSize()
         {
             CustomQueue<int> queue = new CustomQueue<int>();
