@@ -10,7 +10,6 @@ namespace ADS.Homework.Homework_24_02_2022
     {
         public static string[] GetAllPermutations(int[] input)
         {
-
             var result = new string[0];
             GetAllPermutations(input, ref result);
             return result;

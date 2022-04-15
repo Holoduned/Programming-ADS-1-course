@@ -1,4 +1,6 @@
-﻿/*using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 
@@ -8,27 +10,67 @@ namespace program
     {
         static void Main(string[] args)
         {
-        
-            var stringReadLine = Console.ReadLine().Split(' ');
-            var s = Console.ReadLine().Split(' ');
-        
-            var coordinates = Array.ConvertAll(s, int.Parse);
-            Array.Sort(coordinates);
+            var allQueue = new List<string>();
+            var students = new List<int>(){1, 2, 3, 4, 5};
+            allQueue = GetAllPermutations(students);
 
-            double Max = int.MinValue;
-            for (int i = 0; i < int.Parse(stringReadLine[0]) - 1; i++)
+            int[,] joy = new int[5, 5];
+            for (int i = 0; i < 5; i++)
             {
-                double distance = coordinates[i + 1] - coordinates[i];
-                if (distance / 2 > Max)
+                var s = Console.ReadLine().Split(" ");
+                for (int j = 0; j < 5; j++)
                 {
-                    Max = distance / 2;
+                    joy[i, j] = int.Parse(s[j]);
                 }
             }
 
-            Max = Math.Max(Max, coordinates[0]);
-            Max = Math.Max(Max, (int.Parse(stringReadLine[1]) - coordinates[coordinates.Length - 1]));
+            var maxJoy = int.MinValue;
+            foreach (var queue in allQueue)
+            {
+                var q = queue.Select(x => Convert.ToInt32(x.ToString())).ToList();
+                var localJoy = 0;
+                for (int j = 0; j < queue.Length - 1; j++)
+                {
+                    for (int i = j; i < queue.Length; i+=2)
+                    {
+                        if (i != queue.Length - 1)
+                        {
+                            localJoy += joy[q[i] - 1, q[i + 1] - 1] + joy[q[i + 1] - 1, q[i] - 1];
+                        }
+                    }
+                }
+                
+                if (localJoy > maxJoy)
+                {
+                    maxJoy = localJoy;
+                }
+            }
+            
+            Console.WriteLine(maxJoy);
+        }
         
-            Console.WriteLine(Max);
+        private static List<string> GetAllPermutations(List<int> input) 
+        {
+            var result = new List<string>();
+            GetAllPermutations(input, ref result);
+            return result;
+        }
+
+        private static void GetAllPermutations(List<int> input, ref List<string> result, string current = "") 
+        {
+            if (input.Count == 0) 
+            {
+                result.Add(current);
+                return;
+            }
+            for (int i = 0; i < input.Count; i++) 
+            {
+                var newInput = new List<int>(input);
+                newInput.RemoveAt(i);
+                GetAllPermutations(newInput, ref result, current + input[i]);
+            }
         }
     }
-}*/
+}
+
+

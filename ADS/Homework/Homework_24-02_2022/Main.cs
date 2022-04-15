@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ADS.Homework.Homework_24_02_2022
-{
+//namespace ADS.Homework.Homework_24_02_2022
+//{
     //class Programm
     //{
     //    static void Main(string[] args)
@@ -20,4 +20,4 @@ namespace ADS.Homework.Homework_24_02_2022
             
     //    }
     //}
-}
+//}

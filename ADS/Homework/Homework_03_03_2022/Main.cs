@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ADS.Homework.Homework_03_03_2022
+/*namespace ADS.Homework.Homework_03_03_2022
 {
     class Programm
     {
@@ -22,4 +22,4 @@ namespace ADS.Homework.Homework_03_03_2022
             list.PrintList();
         }
     }
-}
+}*/
