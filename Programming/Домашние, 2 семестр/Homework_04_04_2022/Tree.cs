@@ -247,22 +247,48 @@ public class BinarySearchTree<T>
     public void SmallLeftTurn(ref TreeNode<T> node)
     {
         TreeNode<T> temp = node.Right;
-        node.Right = node.Right.Left;
+        node.Right = temp.Left;
         temp.Left = node;
         node = temp;
+    }
+    
+    public void SmallLeftTurn(TreeNode<T> node, out TreeNode<T> left)
+    {
+        TreeNode<T> temp = node.Right;
+        node.Right = temp.Left;
+        temp.Left = node;
+        left = temp;
     }
 
     public void SmallRightRotate(ref TreeNode<T> node)
     {
         TreeNode<T> temp = node.Left;
-        node.Left = node.Left.Right;
+        node.Left = temp.Right;
         temp.Right = node;
         node = temp;
+    }
+    public void SmallRightRotate(TreeNode<T> node, out TreeNode<T> right)
+    {
+        TreeNode<T> temp = node.Left;
+        node.Left = temp.Right;
+        temp.Right = node;
+        right = temp;
     }
 
     public void BigLeftRotate(ref TreeNode<T> node)
     {
-        
+        TreeNode<T> right;
+        SmallRightRotate(node.Right, out right);
+        node.Right = right;
+        SmallLeftTurn(ref node);
+    }
+    
+    public void BigRightRotate(ref TreeNode<T> node)
+    {
+        TreeNode<T> left;
+        SmallLeftTurn(node.Left, out left);
+        node.Left = left; 
+        SmallRightRotate(ref node);
     }
     
 
