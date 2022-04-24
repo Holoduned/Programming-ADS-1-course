@@ -4,7 +4,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 
-namespace program
+/*namespace program
 {
     public class Programm
     {
@@ -71,6 +71,6 @@ namespace program
             }
         }
     }
-}
+}*/
 
 

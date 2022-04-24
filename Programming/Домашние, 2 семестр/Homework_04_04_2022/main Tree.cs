@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/*using System.ComponentModel.DataAnnotations;
 using Контрольная_21_03_2022;
 
-//namespace Programming.Programming.Домашние__2_семестр.Homework_04_04_2022;
+namespace Programming.Programming.Домашние__2_семестр.Homework_04_04_2022;
 
-/*
 public class Programm
 {
     static void Main(string[] args)
@@ -27,10 +26,10 @@ public class Programm
         // Tree.SmallLeftTurn(ref Tree.Root);
         // Tree.SmallRightRotate(ref Tree.Root);
         // Tree.BigLeftRotate(ref Tree.Root);
-        Tree.BigRightRotate(ref Tree.Root);
-        Tree.PrintDepth();
+        // Tree.BigRightRotate(ref Tree.Root);
+        // Tree.PrintDepth();
         
         
     }
-*/
-//}
+
+}*/

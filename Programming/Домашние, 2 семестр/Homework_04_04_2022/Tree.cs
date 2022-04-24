@@ -10,6 +10,7 @@ public class TreeNode<T> : IComparable<T>, IComparable
     public TreeNode<T> Left;
     public TreeNode<T> Right;
     public TreeNode<T> Parent;
+    public int height = 0;
 
     public TreeNode(T data)
     {
@@ -67,30 +68,26 @@ public class BinarySearchTree<T>
                     if (runner.Left == null)
                     {
                         node.Parent = runner;
+                        node.height += node.Parent.height + 1;
                         node.position = 2 * node.Parent.position;
                         runner.Left = node;
                         count++;
                         return;
                     }
-                    else
-                    {
-                        runner = runner.Left;
-                    }
+                    runner = runner.Left;
                 }
                 else
                 {
                     if (runner.Right == null)
                     {
                         node.Parent = runner;
+                        node.height += node.Parent.height + 1;
                         node.position = 2 * node.Parent.position + 1;
                         runner.Right = node;
                         count++;
                         return;
                     }
-                    else
-                    {
-                        runner = runner.Right;
-                    }
+                    runner = runner.Right;
                 }
             }
         }
