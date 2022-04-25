@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 namespace ADS.Homework.Homework_31_03_2022;
 
 public class Program
@@ -18,4 +18,4 @@ public class Program
         
         BellmanFordAlgorithm.BellmanFord(graph,0);
     }
-}
+}*/
