@@ -6,8 +6,8 @@ public class PowerStationClass
     private double critical_temperature = 360;
     private double heatingSpeed = 60;
     
-    public delegate void MethodContainer();
-    public event MethodContainer  Accident;
+    //public delegate void MethodContainer();
+    public event EventHandler<OnEmergencyEventArgs> Accident;
     
     private System.Timers.Timer TickTimer;
 
@@ -33,16 +33,20 @@ public class PowerStationClass
         current_temperature += heatingSpeed;
         if (current_temperature >= critical_temperature)
         {
-            Accident();
+            Accident(this, new OnEmergencyEventArgs());
             current_temperature = 0;
         }
         Console.WriteLine($"Текущая температура: {current_temperature} / {critical_temperature}");
     }
 }
 
+public class OnEmergencyEventArgs : EventArgs
+{
+}
+
 public class Firefighters
 {
-    public void GoOnAccident()
+    public void GoOnAccident(object? sender, OnEmergencyEventArgs onEmergencyEventArgs)
     {
         Console.WriteLine("Пожарная служба выехала на место происшествия!"); 
     }                                                        
@@ -50,7 +54,7 @@ public class Firefighters
 
 public class MinistryEmergencySituations
 {
-    public void GoOnAccident()
+    public void GoOnAccident(object? sender, OnEmergencyEventArgs onEmergencyEventArgs)
     {
         Console.WriteLine("МЧС выехала на место происшествия!"); 
     }   

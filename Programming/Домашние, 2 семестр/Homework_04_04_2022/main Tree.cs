@@ -19,16 +19,17 @@ public class Programm
         // Console.WriteLine($"Значение родителя для вершины в позиции p: {Tree.Parent(4)}");
         // Console.WriteLine($"Значение «самого левого сына» для вершины в позиции p: {Tree.LeftMostChild(3)}");
         // Console.WriteLine($"Значение «правого брата» для вершины в позиции p: {Tree.RightSibling(4)}");
-        // Console.WriteLine($"Является ли p позицией листа дерева: {Tree.IsExternal(5)}");
+        //Console.WriteLine($"Является ли p позицией листа дерева: {(Tree.IsExternal(4) ? "Да" : "Нет")}");
         // Console.WriteLine($"Элемент дерева для вершины в позиции p: {Tree.Element(2)}");
         // Tree.Remove(7);
-        Tree.PrintDepth();
-        // Tree.SmallLeftTurn(ref Tree.Root);
-        // Tree.SmallRightRotate(ref Tree.Root);
-        // Tree.BigLeftRotate(ref Tree.Root);
-        // Tree.BigRightRotate(ref Tree.Root);
-        // Tree.PrintDepth();
         
+        //Console.WriteLine($"{(Tree.IsInternal(4) ? "Да" : "Нет")}");
+        //Console.WriteLine(Tree.IsRoot(1));
+        //Console.WriteLine(Tree.Find(4));
+        //Tree.PreOrderPrint(Tree.Root);
+        //Tree.InOrderPrint(Tree.Root);
+        Tree.PostOrderPrint(Tree.Root);
+        //Tree.PrintDepth();
         
     }
 

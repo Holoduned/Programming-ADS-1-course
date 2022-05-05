@@ -188,9 +188,8 @@ public class BinarySearchTree<T>
 
         return result;
     }
-    public string IsExternal(int p)
+    public bool IsExternal(int p)
     {
-        string result = "Нет";
         var queue = new Queue<TreeNode<T>>();
         queue.Enqueue(Root);
 
@@ -201,12 +200,12 @@ public class BinarySearchTree<T>
 
             if (runner.position == p && runner.Left == null && runner.Right == null)
             {
-                result = "Да";
+                return true;
             }
 
             queue = AddQueue(runner, queue);
         }
-        return result;
+        return false;
     }
     
     public void Remove(T key)
@@ -240,55 +239,94 @@ public class BinarySearchTree<T>
             Add(i);
         }
     }
-
-    public void SmallLeftTurn(ref TreeNode<T> node)
+    
+    public bool IsInternal(int p)
     {
-        TreeNode<T> temp = node.Right;
-        node.Right = temp.Left;
-        temp.Left = node;
-        node = temp;
+        return (!IsExternal(p));
     }
     
-    public void SmallLeftTurn(TreeNode<T> node, out TreeNode<T> left)
+    public bool IsRoot(int p)
     {
-        TreeNode<T> temp = node.Right;
-        node.Right = temp.Left;
-        temp.Left = node;
-        left = temp;
-    }
-
-    public void SmallRightRotate(ref TreeNode<T> node)
-    {
-        TreeNode<T> temp = node.Left;
-        node.Left = temp.Right;
-        temp.Right = node;
-        node = temp;
-    }
-    public void SmallRightRotate(TreeNode<T> node, out TreeNode<T> right)
-    {
-        TreeNode<T> temp = node.Left;
-        node.Left = temp.Right;
-        temp.Right = node;
-        right = temp;
-    }
-
-    public void BigLeftRotate(ref TreeNode<T> node)
-    {
-        TreeNode<T> right;
-        SmallRightRotate(node.Right, out right);
-        node.Right = right;
-        SmallLeftTurn(ref node);
+        return Root.position == p;
     }
     
-    public void BigRightRotate(ref TreeNode<T> node)
+    public bool IsRootByKey(T key)
     {
-        TreeNode<T> left;
-        SmallLeftTurn(node.Left, out left);
-        node.Left = left; 
-        SmallRightRotate(ref node);
+        return Root.Data.Equals(key);
     }
     
+    public bool Find(int key) 
+    {
+        var queue = new Queue<TreeNode<T>>();
+        queue.Enqueue(Root);
 
+        while (queue.Count != 0)
+        {
+            var runner = queue.Peek();
+            queue.Dequeue();
+
+            if (runner.Data.Equals(key))
+            {
+                return true;
+            }
+
+            queue = AddQueue(runner, queue);
+        }
+        return false;
+    }
+    
+    /// <summary>
+    /// Вывод в глубину прямой
+    /// Прямой (pre-order)        
+    /// Посетить корень    
+    /// Обойти левое поддерево    
+    /// Обойти правое поддерево
+    /// </summary>
+    public void PreOrderPrint(TreeNode<T> node)
+    {
+        if (node == null)
+        {
+            return;
+        }
+        Console.WriteLine(node.Data);
+        PreOrderPrint(node.Left);
+        PreOrderPrint(node.Right);
+    }
+    
+    /// <summary>
+    /// Вывод в глубину Симметричный или поперечный (in-order)
+    /// Обойти левое поддерево
+    /// Посетить корень
+    /// Обойти правое поддерево
+    /// </summary>
+    public void InOrderPrint(TreeNode<T> node)
+    {
+        if (node == null)
+        {
+            return;
+        }
+        PreOrderPrint(node.Left);
+        Console.WriteLine(Root.Data);
+        PreOrderPrint(node.Right);
+    }
+    
+    /// <summary>
+    /// Вывод в глубину В обратном порядке (post-order)
+    /// Обойти левое поддерево
+    /// Обойти правое поддерево
+    /// Посетить корень
+    /// </summary>
+    public void PostOrderPrint(TreeNode<T> node)
+    {
+        if (node == null)
+        {
+            return;
+        }
+        PreOrderPrint(node.Left);
+        PreOrderPrint(node.Right);
+        Console.WriteLine(Root.Data);
+    }
+    
     public void PrintDepth()
     {
         if (Root == null)
@@ -323,89 +361,3 @@ public class BinarySearchTree<T>
         return queue;
     }
 }
-
-
-/*
-
-/// <summary>
-/// /// проверяет, является ли p позицией внутренней вершины (не листа)
-/// </summary>
-public bool IsInternal(int p) 
-{ 
-    throw new NotImplementedException();
-}
-
-/// <summary>
-/// проверяет, является ли p позицией корня.
-/// /// </summary>
-public bool IsRoot(int p)
-{
-    
-}
-
-/// <summary>
-/// /// проверяет, является ли key ключом корневого узла.
-/// </summary>
-public bool IsRootByKey(int key)
-{
-    
-}
-
-/// <summary>
-/// /// Поиск элемента в дереве
-/// </summary>
-public bool Find(int key) 
-{ 
-    throw new NotImplementedException();
-}
-
-/// <summary>
-/// /// добавление в дерево значения 
-/// </summary>
-public void Insert(int key, T data)
-{
-    
-}
-
-
-    /// <summary>
-    /// Вывод в глубину прямой
-    /// Прямой (pre-order)        
-    /// Посетить корень    
-    /// Обойти левое поддерево    
-    /// Обойти правое поддерево
-    /// </summary>
-    public void PreOrderPrint()
-    {
-    
-    }
-
-
-    /// <summary>
-    /// Вывод в глубину Симметричный или поперечный (in-order)
-    /// Обойти левое поддерево
-    /// Посетить корень
-    /// Обойти правое поддерево
-    /// </summary>
-    public void InOrderPrint()
-    {
-    }
-
-
-    /// <summary>
-    /// Вывод в глубину В обратном порядке (post-order)
-    /// Обойти левое поддерево
-    /// Обойти правое поддерево
-    /// Посетить корень
-    /// </summary>
-    public void PostOrderPrint()
-    {
-    }
-
-
-    /// <summary>
-    /// Сбалансировать дерево *
-    /// </summary>
-    public void Balance() 
-    { 
-    }*/

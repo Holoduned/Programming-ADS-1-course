@@ -154,7 +154,7 @@ public class AVLTree<T>
         Queue<TreeNode<T>> queue = new Queue<TreeNode<T>>();
         queue.Enqueue(Root);
 
-        while (queue.Count != 0)
+        while (queue.Count != 0) 
         {
             var runner = queue.Peek();
             queue.Dequeue();

@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Reflection;
 namespace Programming.Programming.Домашние__2_семестр.Homework_25_04_2022;
 
@@ -15,4 +15,4 @@ class Programm
         
         PowerStation.Start();
     }
-}
+}*/
