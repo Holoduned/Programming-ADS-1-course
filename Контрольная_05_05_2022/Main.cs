@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -46,4 +46,4 @@ class Programm
         Console.WriteLine(Property.GetValue(fire));
 
     }
-}
+}*/

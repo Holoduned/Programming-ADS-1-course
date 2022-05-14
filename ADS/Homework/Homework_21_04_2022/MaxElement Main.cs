@@ -1,4 +1,4 @@
-﻿namespace ADS.Homework.Homework_21_04_2022;
+﻿/*namespace ADS.Homework.Homework_21_04_2022;
 
 public class Program
 {
@@ -18,4 +18,4 @@ public class Program
         int rightMax = FindMax(data[mid..], 0 , data[mid..].Length - 1);
         return Math.Max(leftMax, rightMax);
     }
-}
+}*/
