@@ -32,7 +32,7 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
 {
     private TreeNode<T> Root;
     public List<TreeNode<T>> nodeList = new();
-    
+
     public void Add(T data)
     {
         var node = new TreeNode<T>(data);
@@ -58,6 +58,7 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
                         nodeList.Add(node);
                         return;
                     }
+
                     runner = runner.Left;
                 }
                 else
@@ -70,6 +71,7 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
                         nodeList.Add(node);
                         return;
                     }
+
                     runner = runner.Right;
                 }
             }
@@ -85,6 +87,7 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
                 Console.Write(node.Data + " ");
             }
         }
+
         Console.WriteLine();
     }
 
@@ -98,10 +101,11 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
                 count++;
             }
         }
+
         return count;
     }
 
-    public void RainbowPrint()
+    /*public void RainbowPrint()
     {
         ConsoleColor[] colors = (ConsoleColor[]) ConsoleColor.GetValues(typeof(ConsoleColor));
         var random = new Random();
@@ -116,6 +120,51 @@ public class BinarySearchTree<T> where T : IComparable, IComparable<T>
         var lastHeight = 1;
         var currentColor = colors[0];
         
+        while (queue.Count != 0)
+        {
+            var runner = queue.Peek();
+            int currunetHeight = runner.height;
+            queue.Dequeue();
+
+            if (currunetHeight == lastHeight)
+            {
+                Console.ForegroundColor = currentColor;
+                Console.WriteLine(runner.Data);
+            }
+            else
+            {
+                lastHeight = currunetHeight;
+                currentColor = colors[new Random().Next(1, 15)];
+                Console.ForegroundColor = currentColor;
+                Console.WriteLine(runner.Data);
+            }
+
+            if (runner.Left != null)
+            {
+                queue.Enqueue(runner.Left);
+            }
+
+            if (runner.Right != null)
+            {
+                queue.Enqueue(runner.Right);
+            }
+        }
+    }*/
+    public void RainbowPrint()
+    {
+        ConsoleColor[] colors = (ConsoleColor[]) ConsoleColor.GetValues(typeof(ConsoleColor));
+        var random = new Random();
+
+        if (Root == null)
+        {
+            return;
+        }
+
+        Queue<TreeNode<T>> queue = new Queue<TreeNode<T>>();
+        queue.Enqueue(Root);
+        var lastHeight = 1;
+        var currentColor = colors[0];
+
         while (queue.Count != 0)
         {
             var runner = queue.Peek();

@@ -84,14 +84,42 @@
 
             return negative;
         }
+        
+        public void RemoveAt(int index)
+        {
+            if (index == 0)
+            {
+                RemoveHead(); 
+                return;
+            }
+
+            if (index == count - 1)
+            {
+                RemoveLast();
+                return;
+            }  
+            var headCopy = head;
+            for (int i = 0; i < count - 1; i++)
+            {
+                if (i == index - 1)
+                { headCopy.nextNode = (headCopy.nextNode.nextNode); return; }
+
+                headCopy = headCopy.nextNode; 
+            }
+        }
 
         public void RemoveHead()
         {
+            if (head == null)
+                return;
             head = head.nextNode;
         }
 
         public void RemoveLast()
         {
+            if (head == null)
+                return;
+            
             Node runner = head;
 
             while (runner.nextNode != null)
@@ -107,6 +135,9 @@
 
         public void RemovePreLast()
         {
+            if (head == null)
+                return;
+            
             Node runner = head;
             Node previous = null;
 
@@ -166,11 +197,14 @@
 
         public void AddBeforeAndAfter(int m, int k)
         {
+            if (head == null)
+                return;
+            
             Node runner = head;
             Node previous = null;
             Node elementM1 = new Node(m); Node elementM2 = new Node(m);
 
-            while (true)
+            while (runner != null)
             {
                 if (runner.Data == k && runner.nextNode == null)
                 {

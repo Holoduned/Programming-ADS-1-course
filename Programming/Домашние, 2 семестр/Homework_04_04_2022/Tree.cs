@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Programming.Домашние__2_семестр.Homework_21_02_2022;
 
 namespace Programming.Programming.Домашние__2_семестр.Homework_04_04_2022;
 
@@ -208,41 +209,64 @@ public class BinarySearchTree<T>
         return false;
     }
     
-    public void Remove(T key)
+    public void Remove(TreeNode<T> node, T key)
     {
+        if (Root == null)
+            return;
+        
+        if (key.CompareTo(node.Data) < 0 && node.Left != null)
+            Remove(node.Left, key);
+        else if (key.CompareTo(node.Data) > 0 && node.Right != null)
+            Remove(node.Right, key);
+        else if (key.CompareTo(node.Data) == 0)
+        {
+            if (node.Left == null && node.Right == null)
+                if (node.position % 2 == 0)
+                    node.Parent.Left = null;
+                else
+                    node.Parent.Right = null;
+            else if (node.Left == null)
+                node.Parent.Left = node.Right;
+            else if (node.Right == null)
+                node.Parent.Right = node.Left;
+            else
+            {
+                var Min = RecursiveSearch(node.Right);
+                Remove(node.Right, Min);
+                if (node.position % 2 == 0)
+                    node.Parent.Left.Data = Min;
+                else
+                    node.Parent.Right.Data = Min;
+            }
+        }
+    }
+
+    private T RecursiveSearch(TreeNode<T> node)
+    {
+        T minimum = node.Data;
+        
         var queue = new Queue<TreeNode<T>>();
-        queue.Enqueue(Root);
-        var ListData = new List<T>();
-        ListData.Add(Root.Data);
+        queue.Enqueue(node);
+
         while (queue.Count != 0)
         {
             var runner = queue.Peek();
             queue.Dequeue();
-            
-            if (runner.Left != null)
+
+            if (runner.Data.CompareTo(minimum) < 0)
             {
-                ListData.Add(runner.Left.Data);
-                queue.Enqueue(runner.Left);
+                minimum = runner.Data;
             }
 
-            if (runner.Right != null)
-            {
-                ListData.Add(runner.Right.Data);
-                queue.Enqueue(runner.Right);
-            }
+            queue = AddQueue(runner, queue);
         }
-
-        Root = null;
-        ListData.Remove(key);
-        foreach (var i in ListData)
-        {
-            Add(i);
-        }
+        return minimum ;
     }
+    
     
     public bool IsInternal(int p)
     {
-        return (!IsExternal(p));
+        return !IsExternal(p);
     }
     
     public bool IsRoot(int p)
@@ -359,5 +383,51 @@ public class BinarySearchTree<T>
         }
 
         return queue;
+    }
+    
+    public void RainbowPrint()
+    {
+        ConsoleColor[] colors = (ConsoleColor[]) ConsoleColor.GetValues(typeof(ConsoleColor));
+        var random = new Random();
+
+        if (Root == null)
+        {
+            return;
+        }
+
+        Queue<TreeNode<T>> queue = new Queue<TreeNode<T>>();
+        queue.Enqueue(Root);
+        var lastHeight = 1;
+        var currentColor = colors[0];
+
+        while (queue.Count != 0)
+        {
+            var runner = queue.Peek();
+            int currunetHeight = runner.height;
+            queue.Dequeue();
+
+            if (currunetHeight == lastHeight)
+            {
+                Console.ForegroundColor = currentColor;
+                Console.WriteLine(runner.Data);
+            }
+            else
+            {
+                lastHeight = currunetHeight;
+                currentColor = colors[new Random().Next(1, 15)];
+                Console.ForegroundColor = currentColor;
+                Console.WriteLine(runner.Data);
+            }
+
+            if (runner.Left != null)
+            {
+                queue.Enqueue(runner.Left);
+            }
+
+            if (runner.Right != null)
+            {
+                queue.Enqueue(runner.Right);
+            }
+        }
     }
 }

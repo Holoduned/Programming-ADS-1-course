@@ -243,6 +243,9 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
 
         public CustomList<T> Reverse()
         {
+            if (head == null)
+                return this;
+            
             CustomList<T> list = new CustomList<T>();
             Node<T> runner = head;
 
@@ -258,16 +261,12 @@ namespace Programming.Programming.Домашние__2_семестр.Homework_07
 
         public void AddRange(params T[] mas)
         {
-            Node<T> runner = head;
-            while (runner.nextNode != null)
-            {
-                runner = runner.nextNode;
-            }
+            if (mas == null)
+                return;
 
             foreach (T item in mas)
             {
-                runner.nextNode = new Node<T>(item);
-                runner = runner.nextNode;
+                Add(item);
             }
         }
 

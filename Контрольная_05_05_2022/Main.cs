@@ -1,8 +1,8 @@
-﻿/*using System;
+﻿using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace Programming.ControlWork;
+/*namespace Programming.ControlWork;
 
 class Programm
 {
@@ -11,28 +11,27 @@ class Programm
         // задача на события
         var fire = new ForestFire(18);
         var firefighters = new Firefighters();
-        var MES = new MinistryEmergencySituations();
-        
-        fire.Accident += firefighters.GoOnAccident;
-        fire.Accident += MES.GoOnAccident;
-        
-        fire.Heating();
+        // var MES = new MinistryEmergencySituations();
+        //
+        // fire.Accident += firefighters.GoOnAccident;
+        // fire.Accident += MES.GoOnAccident;
+        //
+        // fire.Heating();
         
         //задача на деревья
         var Tree = new BinarySearchTree<int>();
-        string[] consoleRead = "12 8 14 6 10 13 15 3".Split(" ");
+        string[] consoleRead = "7 5 12 4 6 11 16 13 3 5".Split(" ");
         
         foreach (var i in consoleRead)
         {
             Tree.Add(int.Parse(i));
         }
-        
-        Tree.NodeHeight(3);
-        Console.WriteLine(Tree.NumOfLeaves());
+        //Tree.NodeHeight(3);
+        //Console.WriteLine(Tree.NumOfLeaves());
         Tree.RainbowPrint();
         
-        //рефлексия
-        Type EventType = typeof(ForestFire);
+        //рефлексияя
+        /*Type EventType = typeof(ForestFire);
         var reflectionMethod = EventType.GetMethod("ReflectionEventMethod");
         
         reflectionMethod.Invoke(fire, parameters: null);
@@ -43,7 +42,7 @@ class Programm
         var Property = EventType.GetProperty("ReflectionProperty");
         Console.WriteLine(Property.GetValue(fire));
         Property.SetValue(fire, 5);
-        Console.WriteLine(Property.GetValue(fire));
+        Console.WriteLine(Property.GetValue(fire));#1#
 
     }
 }*/
