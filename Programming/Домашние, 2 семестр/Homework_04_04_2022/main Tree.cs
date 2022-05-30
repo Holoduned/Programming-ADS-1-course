@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Контрольная_21_03_2022;
 
-namespace Programming.Programming.Домашние__2_семестр.Homework_04_04_2022;
+/*namespace Programming.Programming.Домашние__2_семестр.Homework_04_04_2022;
 
 public class Programm
 {
@@ -33,4 +33,4 @@ public class Programm
         
     }
 
-}
+}*/

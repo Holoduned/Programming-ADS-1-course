@@ -1,6 +1,6 @@
 ﻿namespace Programming.ControlWork;
 
-public class Linq
+/*public class Linq
 {
     public class Product
     {
@@ -68,4 +68,4 @@ public class Linq
             
         };
     }
-}
+}*/
